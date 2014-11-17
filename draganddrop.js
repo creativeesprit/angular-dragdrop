@@ -8,11 +8,23 @@
 
 (function(angular){
 
+/*
 function isDnDsSupported(){
     return 'draggable' in document.createElement("span");
 }
+*/
+function isDnDsSupported(){
+    return 'ondrag' in document.createElement("a");
+}    
+
+/*
+if(!isDnDsSupported()){
+    return;
+}
+*/
 
 if(!isDnDsSupported()){
+    angular.module("ngDragDrop",[]);
     return;
 }
 
